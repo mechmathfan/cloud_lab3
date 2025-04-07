@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+        - image: mechmathfan/notejam:latest  # Твій Docker-образ
+          name: notejam
+          env:
+            - name: DATABASE_URL
+              value: "postgres://admin123:admin123@db:5432/notejam"
+          ports:
+            - containerPort: 8000
