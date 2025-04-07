@@ -1,6 +1,6 @@
 FROM python:2.7
 WORKDIR /app
-COPY notejam /app/
+COPY ../notejam /app/
 COPY requirements.txt /app/
 RUN pip install -r requirements.txt
 EXPOSE 8000
